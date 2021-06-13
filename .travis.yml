@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t toanpt/docker-react -f Dockerfile.dev .
+
+
+script:
+  - docker run toanpt/docker-react npm run test -- --coverage
